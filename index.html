@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="retro">
+<html lang="en" data-theme="emerald">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,7 +45,7 @@
 
   <body>
     <header
-      class="w-[80%] mx-auto py-6 px-8 border-b-2 border-gray-300 shadow-md"
+      class="w-[80%] mx-auto py-6 px-8 my-6 rounded-lg border-b-2 border-gray-300 shadow-md"
     >
       <h1 class="font-bold text-6xl text-green-500">Plant-tracker</h1>
       <div class="grid grid-cols-3 gap-4 py-5">
@@ -68,22 +68,83 @@
       </div>
     </header>
 
-    <hr class="my-10 border border-gray-500 shadow-md">
+    <hr class="my-10 border border-gray-500 shadow-md" />
 
     <main class="w-[80%] mx-auto">
       <div class="flex gap-5">
-        <button id="all-filter-btn" class="btn btn-soft btn-info w-[60px]">All</button>
-        <button id="all-filter-btn" class="btn btn-soft btn-success w-[90px]">Thriving</button>
-        <button id="all-filter-btn" class="btn btn-soft btn-error w-[100px]">Struggling</button>
+        <button id="all-filter-btn" class="btn btn-soft btn-warning w-[60px]">
+          All
+        </button>
+        <button
+          id="Thriving-filter-btn"
+          class="btn btn-soft btn-success w-[90px]"
+        >
+          Thriving
+        </button>
+        <button
+          id="Struggling-filter-btn"
+          class="btn btn-soft btn-error w-[100px]"
+        >
+          Struggling
+        </button>
       </div>
+
+      <section id="allcards" class="mt-6 flex flex-col gap-4">
+        <!-- card -1  -->
+        <div
+          class="card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start"
+        >
+          <!-- main part -1  -->
+          <div class="flex flex-col gap-3">
+            <!-- part-1: Name -->
+            <div>
+              <p class="plantName text-2xl font-bold text-gray-800">
+                Plant name 1
+              </p>
+              <p class="latinName text-sm text-gray-400">Latin Name</p>
+            </div>
+            <!-- part-2: Light & Water badges -->
+            <div class="flex gap-2">
+              <span class="light badge badge-ghost text-xs text-gray-500"
+                >Bright Indicate</span
+              >
+              <span class="water badge badge-ghost text-xs text-gray-500"
+                >Weekly</span
+              >
+            </div>
+            <!-- part-3: Status & Notes -->
+            <div>
+              <span class="status badge badge-outline badge-warning text-xs"
+                >Struggling</span
+              >
+            </div>
+            <p class="notes text-sm text-gray-500">
+              New leaf unfurling by the east window.
+            </p>
+
+            <!-- part-4: Action buttons -->
+            <div class="flex gap-3 mt-1">
+              <button
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+              >
+                Thriving
+              </button>
+              <button
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+              >
+                Struggling
+              </button>
+            </div>
+          </div>
+          <!-- main part -2: Delete button -->
+          <div>
+            <button class="btn btn-outline btn-error btn-sm w-[80px]">
+              Delete
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
-
-
-
-
-
-
-
 
     <script src="script.js"></script>
   </body>
