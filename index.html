@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="retro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwindcss+DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- GoogleFonts Outfit Link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .outfit {
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+      }
+    </style>
+
+    <title>Plant-tracker</title>
+  </head>
+
+  <body>
+    <header class="w-[80%] mx-auto py-6 px-8 border-b-2 border-gray-300 shadow-md">
+      <h1 class="font-bold text-6xl text-green-500">Plant-tracker</h1>
+      <div class="grid grid-cols-3 gap-4  py-5">
+        <div class="bg-orange-200 px-8 py-4 rounded-s-xl shadow-sm">
+          <p class="text-orange-400 text-lg font-bold">Total</p>
+          <p class="text-orange-400 font-bold">0</p>
+        </div>
+        <div class="bg-green-300 px-8 py-4 shadow-sm">
+          <p class="text-green-500 text-lg font-bold">Thrive</p>
+          <p class="text-green-500 text-lg font-bold">0</p>
+        </div>
+        <div class="bg-red-300 px-8 py-4 rounded-e-xl shadow-sm">
+          <p class="text-red-500 font-bold text-lg">Struggling</p>
+          <p class="text-red-500 text-lg font-bold">0</p>
+        </div>
+      </div>
+
+      <div>
+        <p></p>
+      </div>
+    </header>
+
+    <script src="script.js"></script>
+  </body>
+</html>
