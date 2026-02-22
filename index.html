@@ -44,9 +44,11 @@
   </head>
 
   <body>
-    <header class="w-[80%] mx-auto py-6 px-8 border-b-2 border-gray-300 shadow-md">
+    <header
+      class="w-[80%] mx-auto py-6 px-8 border-b-2 border-gray-300 shadow-md"
+    >
       <h1 class="font-bold text-6xl text-green-500">Plant-tracker</h1>
-      <div class="grid grid-cols-3 gap-4  py-5">
+      <div class="grid grid-cols-3 gap-4 py-5">
         <div class="bg-orange-200 px-8 py-4 rounded-s-xl shadow-sm">
           <p class="text-orange-400 text-lg font-bold">Total</p>
           <p class="text-orange-400 font-bold">0</p>
@@ -65,6 +67,23 @@
         <p></p>
       </div>
     </header>
+
+    <hr class="my-10 border border-gray-500 shadow-md">
+
+    <main class="w-[80%] mx-auto">
+      <div class="flex gap-5">
+        <button id="all-filter-btn" class="btn btn-soft btn-info w-[60px]">All</button>
+        <button id="all-filter-btn" class="btn btn-soft btn-success w-[90px]">Thriving</button>
+        <button id="all-filter-btn" class="btn btn-soft btn-error w-[100px]">Struggling</button>
+      </div>
+    </main>
+
+
+
+
+
+
+
 
     <script src="script.js"></script>
   </body>
