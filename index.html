@@ -72,16 +72,16 @@
 
     <main class="w-[80%] mx-auto">
       <div class="flex gap-5">
-        <button id="all-filter-btn" class="btn btn-soft btn-warning w-[60px]">
+        <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn btn-soft btn-warning w-[60px]">
           All
         </button>
-        <button
+        <button onclick="toggleStyle('Thriving-filter-btn')"
           id="Thriving-filter-btn"
           class="btn btn-soft btn-success w-[90px]"
         >
           Thriving
         </button>
-        <button
+        <button onclick="toggleStyle('Struggling-filter-btn')"
           id="Struggling-filter-btn"
           class="btn btn-soft btn-error w-[100px]"
         >
