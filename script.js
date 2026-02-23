@@ -1,6 +1,6 @@
 let thrivingList = [];
 let strugglingList = [];
-let currentStatus = 'all';
+let currentStatus = "all";
 
 let totalCount = document.getElementById("total");
 let ThriveCount = document.getElementById("Thrive-count");
@@ -124,12 +124,13 @@ mainContainer.addEventListener("click", function (event) {
     if (!plantExist) {
       strugglingList.push(cardInfo);
     }
-    thrivingList = thrivingList.filter(item => item.plantName != cardInfo.plantName);
-    if (currentStatus == "Thriving-filter-btn"){
+    thrivingList = thrivingList.filter(
+      (item) => item.plantName != cardInfo.plantName,
+    );
+    if (currentStatus == "Thriving-filter-btn") {
       renderThriving();
     }
-      
-      
+
     calculateCount();
     // renderStruggling();
   }
@@ -142,22 +143,22 @@ function renderThriving() {
     console.log(thrive);
     let div = document.createElement("div");
     div.className =
-      "card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start";
-    div.innerHTML = `<div class="flex flex-col gap-3">
+      "plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4";
+    div.innerHTML = `<div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 ${thrive.plantName}
               </p>
-              <p class="latinName text-sm text-gray-400">${thrive.latinName}</p>
+              <p class="latinName text-sm text-gray-400 italic">${thrive.latinName}</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >${thrive.light}</span
+                >☀️ ${thrive.light}</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >${thrive.water}</span
+                >💧 ${thrive.water}</span
               >
             </div>
             <!-- part-3: Status & Notes -->
@@ -171,23 +172,23 @@ function renderThriving() {
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]">
+              🗑️ Delete
             </button>
           </div>`;
 
@@ -202,27 +203,27 @@ function renderStruggling() {
     console.log(Struggle);
     let div = document.createElement("div");
     div.className =
-      "card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start";
-    div.innerHTML = `<div class="flex flex-col gap-3">
+      "plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4";
+    div.innerHTML = `<div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 ${Struggle.plantName}
               </p>
-              <p class="latinName text-sm text-gray-400">${Struggle.latinName}</p>
+              <p class="latinName text-sm text-gray-400 italic">${Struggle.latinName}</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >${Struggle.light}</span
+                >☀️ ${Struggle.light}</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >${Struggle.water}</span
+                >💧 ${Struggle.water}</span
               >
             </div>
             <!-- part-3: Status & Notes -->
             <div>
-              <span class="status badge badge-outline badge-success text-xs"
+              <span class="status badge badge-outline badge-error text-xs"
                 >${Struggle.status}</span
               >
             </div>
@@ -231,23 +232,23 @@ function renderStruggling() {
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]">
+              🗑️ Delete
             </button>
           </div>`;
 

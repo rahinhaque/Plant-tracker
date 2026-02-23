@@ -38,6 +38,238 @@
         font-family: "Outfit", sans-serif;
         font-optical-sizing: auto;
       }
+
+      /* ===== PREMIUM CARD ANIMATIONS ===== */
+
+      /* Staggered entrance animation */
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .plant-card {
+        animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(240, 253, 244, 0.6) 100%
+        );
+        border: 1px solid rgba(209, 213, 219, 0.5);
+        backdrop-filter: blur(8px);
+      }
+
+      /* Staggered delay for each card */
+      .plant-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .plant-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .plant-card:nth-child(3) {
+        animation-delay: 0.25s;
+      }
+      .plant-card:nth-child(4) {
+        animation-delay: 0.35s;
+      }
+      .plant-card:nth-child(5) {
+        animation-delay: 0.45s;
+      }
+      .plant-card:nth-child(6) {
+        animation-delay: 0.55s;
+      }
+
+      /* Decorative gradient accent bar on the left */
+      .plant-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #22c55e, #16a34a, #059669);
+        border-radius: 4px 0 0 4px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .plant-card:hover::before {
+        opacity: 1;
+      }
+
+      /* Hover lift + green glow */
+      .plant-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow:
+          0 20px 40px -12px rgba(34, 197, 94, 0.2),
+          0 8px 20px -8px rgba(0, 0, 0, 0.1),
+          0 0 0 1px rgba(34, 197, 94, 0.1);
+        border-color: rgba(34, 197, 94, 0.3);
+      }
+
+      /* Subtle background shimmer on hover */
+      .plant-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(34, 197, 94, 0.04),
+          transparent
+        );
+        transition: left 0.8s ease;
+        pointer-events: none;
+      }
+
+      .plant-card:hover::after {
+        left: 100%;
+      }
+
+      /* ===== BUTTON MICRO-INTERACTIONS ===== */
+
+      .plant-card .btn {
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .plant-card .Thriving-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 4px 16px -4px rgba(34, 197, 94, 0.5);
+      }
+
+      .plant-card .Struggling-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 4px 16px -4px rgba(239, 68, 68, 0.5);
+      }
+
+      /* Delete button shake on hover */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-3px) rotate(-1deg);
+        }
+        40% {
+          transform: translateX(3px) rotate(1deg);
+        }
+        60% {
+          transform: translateX(-2px) rotate(-0.5deg);
+        }
+        80% {
+          transform: translateX(2px) rotate(0.5deg);
+        }
+      }
+
+      .delete-btn:hover {
+        animation: shake 0.5s ease;
+        box-shadow: 0 4px 16px -4px rgba(239, 68, 68, 0.5);
+      }
+
+      /* ===== BADGE SHIMMER ===== */
+
+      @keyframes badgeShimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+
+      .plant-card .badge-ghost {
+        background-size: 200% 100%;
+        background-image: linear-gradient(
+          90deg,
+          rgba(243, 244, 246, 0.8) 0%,
+          rgba(229, 231, 235, 0.6) 40%,
+          rgba(255, 255, 255, 0.9) 50%,
+          rgba(229, 231, 235, 0.6) 60%,
+          rgba(243, 244, 246, 0.8) 100%
+        );
+        animation: badgeShimmer 4s ease-in-out infinite;
+        border: 1px solid rgba(209, 213, 219, 0.4);
+        backdrop-filter: blur(4px);
+      }
+
+      /* Status badge glow */
+      .plant-card .badge-success {
+        box-shadow: 0 0 10px -2px rgba(34, 197, 94, 0.4);
+      }
+      .plant-card .badge-warning {
+        box-shadow: 0 0 10px -2px rgba(234, 179, 8, 0.4);
+      }
+      .plant-card .badge-error {
+        box-shadow: 0 0 10px -2px rgba(239, 68, 68, 0.4);
+      }
+
+      /* ===== HEADER STATS ANIMATION ===== */
+
+      @keyframes countPop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .stat-card {
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ===== FILTER BUTTON ACTIVE TRANSITION ===== */
+
+      .btn-soft {
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      }
+
+      /* ===== HEADER TITLE GRADIENT ===== */
+
+      .header-title {
+        background: linear-gradient(
+          135deg,
+          #22c55e 0%,
+          #16a34a 40%,
+          #059669 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ===== RESPONSIVE MOBILE ===== */
+
+      @media (max-width: 640px) {
+        .plant-card {
+          padding: 1rem !important;
+        }
+        .plant-card .plantName {
+          font-size: 1.2rem;
+        }
+      }
     </style>
 
     <title>Plant-tracker</title>
@@ -45,21 +277,41 @@
 
   <body>
     <header
-      class="w-[80%] mx-auto py-6 px-8 my-6 rounded-lg border-b-2 border-gray-300 shadow-md"
+      class="w-[95%] sm:w-[80%] mx-auto py-4 sm:py-6 px-4 sm:px-8 my-4 sm:my-6 rounded-2xl border border-gray-200 shadow-lg bg-gradient-to-br from-white to-green-50/40 backdrop-blur-sm"
     >
-      <h1 class="font-bold text-6xl text-green-500">Plant-tracker</h1>
-      <div class="grid grid-cols-3 gap-4 py-5">
-        <div class="bg-orange-200 px-8 py-4 rounded-s-xl shadow-sm">
-          <p class="text-orange-400 text-lg font-bold">Total</p>
-          <p id="total" class="text-orange-400 font-bold">0</p>
+      <h1 class="header-title font-bold text-3xl sm:text-5xl md:text-6xl">
+        🌿 Plant-tracker
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 py-4 sm:py-5">
+        <div
+          class="stat-card bg-gradient-to-br from-amber-100 to-orange-200 px-6 sm:px-8 py-4 rounded-xl shadow-sm"
+        >
+          <p class="text-orange-500 text-sm sm:text-lg font-bold">Total</p>
+          <p id="total" class="text-orange-500 font-bold text-2xl sm:text-3xl">
+            0
+          </p>
         </div>
-        <div class="bg-green-300 px-8 py-4 shadow-sm">
-          <p class="text-green-500 text-lg font-bold">Thrive</p>
-          <p id="Thrive-count" class="text-green-500 text-lg font-bold">0</p>
+        <div
+          class="stat-card bg-gradient-to-br from-green-100 to-green-300 px-6 sm:px-8 py-4 rounded-xl shadow-sm"
+        >
+          <p class="text-green-600 text-sm sm:text-lg font-bold">Thrive</p>
+          <p
+            id="Thrive-count"
+            class="text-green-600 text-2xl sm:text-3xl font-bold"
+          >
+            0
+          </p>
         </div>
-        <div class="bg-red-300 px-8 py-4 rounded-e-xl shadow-sm">
-          <p class="text-red-500 font-bold text-lg">Struggling</p>
-          <p id="Struggling-count" class="text-red-500 text-lg font-bold">0</p>
+        <div
+          class="stat-card bg-gradient-to-br from-red-100 to-red-300 px-6 sm:px-8 py-4 rounded-xl shadow-sm"
+        >
+          <p class="text-red-500 font-bold text-sm sm:text-lg">Struggling</p>
+          <p
+            id="Struggling-count"
+            class="text-red-500 text-2xl sm:text-3xl font-bold"
+          >
+            0
+          </p>
         </div>
       </div>
 
@@ -68,20 +320,28 @@
       </div>
     </header>
 
-    <hr class="my-10 border border-gray-500 shadow-md" />
+    <hr
+      class="my-6 sm:my-10 border border-gray-200 shadow-sm w-[90%] sm:w-[75%] mx-auto"
+    />
 
-    <main class="w-[80%] mx-auto">
-      <div class="flex gap-5">
-        <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn btn-soft btn-warning w-[60px]">
+    <main class="w-[95%] sm:w-[80%] mx-auto pb-10">
+      <div class="flex flex-wrap gap-3 sm:gap-5">
+        <button
+          onclick="toggleStyle('all-filter-btn')"
+          id="all-filter-btn"
+          class="btn btn-soft btn-warning w-[60px]"
+        >
           All
         </button>
-        <button onclick="toggleStyle('Thriving-filter-btn')"
+        <button
+          onclick="toggleStyle('Thriving-filter-btn')"
           id="Thriving-filter-btn"
           class="btn btn-soft btn-success w-[90px]"
         >
           Thriving
         </button>
-        <button onclick="toggleStyle('Struggling-filter-btn')"
+        <button
+          onclick="toggleStyle('Struggling-filter-btn')"
           id="Struggling-filter-btn"
           class="btn btn-soft btn-error w-[100px]"
         >
@@ -90,31 +350,29 @@
       </div>
 
       <!-- Filtered section -->
-       <section id="filtered-section" class="hidden">
+      <section id="filtered-section" class="hidden"></section>
 
-       </section>
-
-      <section id="allcards" class="mt-6 flex flex-col gap-4">
+      <section id="allcards" class="mt-6 flex flex-col gap-5">
         <!-- card -1  -->
         <div
-          class="card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start"
+          class="plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4"
         >
           <!-- main part -1  -->
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 Plant name 1
               </p>
-              <p class="latinName text-sm text-gray-400">Latin Name</p>
+              <p class="latinName text-sm text-gray-400 italic">Latin Name</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >Bright Indicate</span
+                >☀️ Bright Indicate</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >Weekly</span
+                >💧 Weekly</span
               >
             </div>
             <!-- part-3: Status & Notes -->
@@ -128,47 +386,49 @@
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button
+              class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]"
+            >
+              🗑️ Delete
             </button>
           </div>
         </div>
 
         <!-- card -2  -->
         <div
-          class="card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start"
+          class="plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4"
         >
           <!-- main part -1  -->
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 Plant name 2
               </p>
-              <p class="latinName text-sm text-gray-400">Latin Name</p>
+              <p class="latinName text-sm text-gray-400 italic">Latin Name</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >Bright Indicate</span
+                >☀️ Bright Indicate</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >Weekly</span
+                >💧 Weekly</span
               >
             </div>
             <!-- part-3: Status & Notes -->
@@ -182,47 +442,49 @@
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button
+              class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]"
+            >
+              🗑️ Delete
             </button>
           </div>
         </div>
 
         <!-- card -3  -->
         <div
-          class="card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start"
+          class="plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4"
         >
           <!-- main part -1  -->
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 Plant name 3
               </p>
-              <p class="latinName text-sm text-gray-400">Latin Name</p>
+              <p class="latinName text-sm text-gray-400 italic">Latin Name</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >Bright Indicate</span
+                >☀️ Bright Indicate</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >Weekly</span
+                >💧 Weekly</span
               >
             </div>
             <!-- part-3: Status & Notes -->
@@ -236,47 +498,49 @@
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button
+              class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]"
+            >
+              🗑️ Delete
             </button>
           </div>
         </div>
 
         <!-- card -4  -->
         <div
-          class="card border border-gray-200 rounded-xl shadow-sm p-6 flex flex-row justify-between items-start"
+          class="plant-card card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-4"
         >
           <!-- main part -1  -->
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3 w-full">
             <!-- part-1: Name -->
             <div>
-              <p class="plantName text-2xl font-bold text-gray-800">
+              <p class="plantName text-xl sm:text-2xl font-bold text-gray-800">
                 Plant name 4
               </p>
-              <p class="latinName text-sm text-gray-400">Latin Name</p>
+              <p class="latinName text-sm text-gray-400 italic">Latin Name</p>
             </div>
             <!-- part-2: Light & Water badges -->
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span class="light badge badge-ghost text-xs text-gray-500"
-                >Bright Indicate</span
+                >☀️ Bright Indicate</span
               >
               <span class="water badge badge-ghost text-xs text-gray-500"
-                >Weekly</span
+                >💧 Weekly</span
               >
             </div>
             <!-- part-3: Status & Notes -->
@@ -290,30 +554,28 @@
             </p>
 
             <!-- part-4: Action buttons -->
-            <div class="flex gap-3 mt-1">
+            <div class="flex flex-wrap gap-3 mt-1">
               <button
-                class="Thriving-btn btn btn-outline btn-success btn-sm w-[90px]"
+                class="Thriving-btn btn btn-outline btn-success btn-sm w-auto sm:w-[90px]"
               >
-                Thriving
+                ✅ Thriving
               </button>
               <button
-                class="Struggling-btn btn btn-outline btn-error btn-sm w-[100px]"
+                class="Struggling-btn btn btn-outline btn-error btn-sm w-auto sm:w-[100px]"
               >
-                Struggling
+                ⚠️ Struggling
               </button>
             </div>
           </div>
           <!-- main part -2: Delete button -->
-          <div>
-            <button class="btn btn-outline btn-error btn-sm w-[80px]">
-              Delete
+          <div class="self-end sm:self-start">
+            <button
+              class="delete-btn btn btn-outline btn-error btn-sm w-auto sm:w-[80px]"
+            >
+              🗑️ Delete
             </button>
           </div>
         </div>
-
-
-
-
       </section>
     </main>
 
